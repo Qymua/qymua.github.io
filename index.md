@@ -6,5 +6,5 @@ The subdomain book.qymua.com has stopped updating the content and is only used t
 
 ✔Welcome to my blog https://qymua.com 
 
->  github+hexo  deploy
+>  github+hexo  Deploy
 
