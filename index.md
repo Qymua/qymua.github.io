@@ -1,10 +1,10 @@
 
-## 懒人木elf 信安狗
+## 懒人木elf secdog
 
-子域名book.qymua.com已停止更新内容，仅用于绑定github pages ，现有子页面如下：
+The subdomain book.qymua.com has stopped updating the content and is only used to bind github pages.The accessible pages are as follows:
 - https://book.qymua.com/CTF-One-for-All/  
 
-✔欢迎访问我的博客https://qymua.com 
+✔Welcome to my blog https://qymua.com 
 
->  github+hexo+next 快捷部署
+>  github+hexo  deploy
 
