@@ -1,7 +1,8 @@
 # qymua.github.io
 
-The subdomain book.qymua.com has stopped updating the content and is only used to bind github pages.The accessible pages are as follows:
-- https://book.qymua.com/CTF-One-for-All/  
+The https://qymua.github.io/ has stopped updating the content and is only used to bind github pages.The accessible pages are as follows:
+
+- https://qymua.github.io/CTF-One-for-All/  
 
 ✔Welcome to my blog https://qymua.com 
 
