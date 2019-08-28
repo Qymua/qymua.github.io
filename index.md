@@ -1,10 +1,11 @@
 
-## 懒人木elf secdog
+## 酋小木 secdog
 
-The subdomain book.qymua.com has stopped updating the content and is only used to bind github pages.The accessible pages are as follows:
-- https://book.qymua.com/CTF-One-for-All
+The https://qymua.github.io/ has stopped updating the content and is only used to bind github pages.The accessible pages are as follows:
 
-✔Welcome to my blog https://qymua.com
+- https://qymua.github.io/CTF-One-for-All/  
 
->  github+hexo  Deploy
+✔Welcome to my blog https://qymua.com 
+
+>  github+hexo  deploy
 
