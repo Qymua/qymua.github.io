@@ -1,10 +1,6 @@
-# qymua.github.io
+## Qymua'blog
 
-The https://qymua.github.io/ has stopped updating the content and is only used to bind github pages.The accessible pages are as follows:
+✔欢迎访问我的博客https://qymua.com 
 
-- https://qymua.github.io/CTF-One-for-All/  
-
-✔Welcome to my blog https://qymua.com 
-
->  github+hexo  deploy
+>  github+hexo+next 快捷部署
 
