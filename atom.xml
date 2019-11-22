@@ -10,7 +10,7 @@
   <id>http://qymua.com/</id>
   
   <author>
-    <name>DEKU</name>
+    <name>楠柯yiyi</name>
     
   </author>
   
@@ -153,9 +153,9 @@
       <category term="Pwn" scheme="http://qymua.com/categories/Pwn/"/>
     
     
-      <category term="ubuntu" scheme="http://qymua.com/tags/ubuntu/"/>
-    
       <category term="linux" scheme="http://qymua.com/tags/linux/"/>
+    
+      <category term="ubuntu" scheme="http://qymua.com/tags/ubuntu/"/>
     
       <category term="pwn" scheme="http://qymua.com/tags/pwn/"/>
     
@@ -234,9 +234,9 @@
       <category term="随笔" scheme="http://qymua.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="ubuntu" scheme="http://qymua.com/tags/ubuntu/"/>
-    
       <category term="linux" scheme="http://qymua.com/tags/linux/"/>
+    
+      <category term="ubuntu" scheme="http://qymua.com/tags/ubuntu/"/>
     
   </entry>
   
@@ -262,9 +262,9 @@
       <category term="随笔" scheme="http://qymua.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="linux" scheme="http://qymua.com/tags/linux/"/>
-    
       <category term="deepin" scheme="http://qymua.com/tags/deepin/"/>
+    
+      <category term="linux" scheme="http://qymua.com/tags/linux/"/>
     
   </entry>
   
