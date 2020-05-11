@@ -416,7 +416,7 @@ height:50vh;
 <p><strong>第二步：永久性解决方案，进入系统后修改配置</strong></p>
 <p>1）开机后输入账号和密码，若进入桌面鼠标一直转圈圈，请看下面的解决方案，如果一切正常，则继续操作；</p>
 <p>2）按Ctrl+Alt+T进入打开终端，输入以下代码来打开grub配置文件：<code>sudo gedit /boot/grub/grub.cfg</code>，如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217668556.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218463715.jpg" alt=""></p>
 <p>3）成功后会打开你的<code>grub.cfg</code>文件，如图所示，然后按Ctrl+F搜索quiet，并在第<code>第一个quiet</code>后面空一格加上这行代码：<code>acpi_osi=! acpi=&quot;windows 2009&quot;</code>，并保存退出。</p>
 <p>问题到这里应该就能得到永久解决了！</p>
 <blockquote>
@@ -426,7 +426,7 @@ height:50vh;
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 将nouveau添加到黑名单，防止它启动</span><br><span class="line">cd <span class="regexp">/etc/</span>modprobe.d $ sudo vi nvidia-graphics-drivers.conf  <span class="comment">//写入：blacklist nouveau</span></span><br><span class="line">cat nvidia-graphics-drivers.conf     <span class="comment">//检查</span></span><br><span class="line"><span class="number">2.</span> 对于：<span class="regexp">/etc/</span><span class="keyword">default</span>/grub，添加到末尾。</span><br><span class="line">sudo vi <span class="regexp">/etc/</span><span class="keyword">default</span><span class="regexp">/grub   /</span>/末尾写入：rdblacklist=nouveau nouveau.modeset=<span class="number">0</span></span><br><span class="line">cat <span class="regexp">/etc/</span><span class="keyword">default</span><span class="regexp">/grub   /</span>/检查</span><br></pre></td></tr></table></figure>
 <p>执行官方提供的操作，不成功也没事</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mv /boot/initramfs-<span class="constructor">$(<span class="params">uname</span> -<span class="params">r</span>)</span>.img /boot/initramfs-<span class="constructor">$(<span class="params">uname</span> -<span class="params">r</span>)</span>-nouveau.img</span><br><span class="line">然后重新生成initrd文件</span><br><span class="line">$ sudo dracut /boot/initramfs-<span class="constructor">$(<span class="params">uname</span> -<span class="params">r</span>)</span>.img <span class="constructor">$(<span class="params">uname</span> -<span class="params">r</span>)</span> $ sudo update-initramfs -u</span><br></pre></td></tr></table></figure>
-<h2 id="显示设置旋转后导致开机黑屏"><a href="#显示设置旋转后导致开机黑屏" class="headerlink" title="显示设置旋转后导致开机黑屏"></a>显示设置旋转后导致开机黑屏</h2><p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217668553.jpg" alt=""></p>
+<h2 id="显示设置旋转后导致开机黑屏"><a href="#显示设置旋转后导致开机黑屏" class="headerlink" title="显示设置旋转后导致开机黑屏"></a>显示设置旋转后导致开机黑屏</h2><p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218463713.jpg" alt=""></p>
 <p>这是一个坑，切记不用去点</p>
 <p>如果中枪了，可以使用以下解决方案：<br>开机进入用户登录界面，ctrl+alt+F1-f7</p>
 <p>执行以下命令</p>

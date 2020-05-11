@@ -422,19 +422,19 @@ height:50vh;
 <li><strong>容器赋予了软件独立性</strong>　，使其免受外在环境差异（例如，开发和预演环境的差异）的影响，从而有助于减少团队间在相同基础设施上运行不同软件时的冲突。</li>
 </ul>
 <h4 id="再来看看容器较为通俗的解释"><a href="#再来看看容器较为通俗的解释" class="headerlink" title="再来看看容器较为通俗的解释"></a>再来看看容器较为通俗的解释</h4><p><strong>如果需要通俗的描述容器的话，我觉得容器就是一个存放东西的地方，就像书包可以装各种文具、衣柜可以放各种衣服、鞋架可以放各种鞋子一样。我们现在所说的容器存放的东西可能更偏向于应用比如网站、程序甚至是系统环境。</strong></p>
-<p><img src="./images/1589217493547.png" alt="认识容器"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509577.png" alt="认识容器"></p>
 <h3 id="图解物理机-虚拟机与容器"><a href="#图解物理机-虚拟机与容器" class="headerlink" title="图解物理机,虚拟机与容器"></a>图解物理机,虚拟机与容器</h3><p>关于虚拟机与容器的对比在后面会详细介绍到，这里只是通过网上的图片加深大家对于物理机、虚拟机与容器这三者的理解。</p>
-<p><strong>物理机</strong><br><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493455.jpg" alt="物理机"></p>
+<p><strong>物理机</strong><br><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509950.jpg" alt="物理机"></p>
 <p><strong>虚拟机：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493468.jpg" alt="虚拟机"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509947.jpg" alt="虚拟机"></p>
 <p><strong>容器：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493499.jpg" alt="容器"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509948.jpg" alt="容器"></p>
 <p>通过上面这三张抽象图，我们可以大概可以通过类比概括出： <strong>容器虚拟化的是操作系统而不是硬件，容器之间是共享同一套操作系统资源的。虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统。因此容器的隔离级别会稍低一些。</strong></p>
 <hr>
 <blockquote>
 <p>相信通过上面的解释大家对于容器这个既陌生又熟悉的概念有了一个初步的认识，下面我们就来谈谈Docker的一些概念。</p>
 </blockquote>
-<h2 id="再来谈谈-Docker-的一些概念"><a href="#再来谈谈-Docker-的一些概念" class="headerlink" title="再来谈谈 Docker 的一些概念"></a>再来谈谈 Docker 的一些概念</h2><p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493546.png" alt="Docker的一些概念"></p>
+<h2 id="再来谈谈-Docker-的一些概念"><a href="#再来谈谈-Docker-的一些概念" class="headerlink" title="再来谈谈 Docker 的一些概念"></a>再来谈谈 Docker 的一些概念</h2><p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509944.png" alt="Docker的一些概念"></p>
 <h3 id="什么是-Docker"><a href="#什么是-Docker" class="headerlink" title="什么是 Docker?"></a>什么是 Docker?</h3><p>说实话关于Docker是什么并太好说，下面我通过四点向你说明Docker到底是个什么东西。</p>
 <ul>
 <li><strong>Docker 是世界领先的软件容器平台。</strong> </li>
@@ -442,7 +442,7 @@ height:50vh;
 <li><strong>Docker 能够自动执行重复性任务，例如搭建和配置开发环境，从而解放了开发人员以便他们专注在真正重要的事情上：构建杰出的软件。</strong></li>
 <li><strong>用户可以方便地创建和使用容器，把自己的应用放入容器。容器还可以进行版本管理、复制、分享、修改，就像管理普通的代码一样。</strong></li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493163.jpg" alt="什么是Docker"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509957.jpg" alt="什么是Docker"></p>
 <h3 id="Docker-思想"><a href="#Docker-思想" class="headerlink" title="Docker 思想"></a>Docker 思想</h3><ul>
 <li><strong>集装箱</strong></li>
 <li><strong>标准化：</strong> ①运输方式    ② 存储方式 ③ API接口</li>
@@ -470,8 +470,8 @@ height:50vh;
 </blockquote>
 <h2 id="容器-VS-虚拟机"><a href="#容器-VS-虚拟机" class="headerlink" title="容器 VS 虚拟机"></a>容器 VS 虚拟机</h2><p>　　简单来说： <strong>容器和虚拟机具有相似的资源隔离和分配优势，但功能有所不同，因为容器虚拟化的是操作系统，而不是硬件，因此容器更容易移植，效率也更高。</strong></p>
 <h3 id="两者对比图"><a href="#两者对比图" class="headerlink" title="两者对比图"></a>两者对比图</h3><p>　　传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；而容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493108.jpg" alt="容器 VS 虚拟机"></p>
-<h3 id="容器与虚拟机总结"><a href="#容器与虚拟机总结" class="headerlink" title="容器与虚拟机总结"></a>容器与虚拟机总结</h3><p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493111.jpg" alt="容器与虚拟机 (VM) 总结"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509945.jpg" alt="容器 VS 虚拟机"></p>
+<h3 id="容器与虚拟机总结"><a href="#容器与虚拟机总结" class="headerlink" title="容器与虚拟机总结"></a>容器与虚拟机总结</h3><p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509949.jpg" alt="容器与虚拟机 (VM) 总结"></p>
 <ul>
 <li><p><strong>容器是一个应用层抽象，用于将代码和依赖资源打包在一起。</strong> <strong>多个容器可以在同一台机器上运行，共享操作系统内核，但各自作为独立的进程在用户空间中运行</strong> 。与虚拟机相比， <strong>容器占用的空间较少</strong>（容器镜像大小通常只有几十兆），<strong>瞬间就能完成启动</strong> 。</p>
 </li>
@@ -479,10 +479,10 @@ height:50vh;
 </li>
 </ul>
 <p>　　通过Docker官网，我们知道了这么多Docker的优势，但是大家也没有必要完全否定虚拟机技术，因为两者有不同的使用场景。<strong>虚拟机更擅长于彻底隔离整个运行环境</strong>。例如，云服务提供商通常采用虚拟机技术隔离不同的用户。而 <strong>Docker通常用于隔离不同的应用</strong> ，例如前端，后端以及数据库。</p>
-<p>  <img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493177.png" alt=""></p>
+<p>  <img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509966.png" alt=""></p>
 <p>如上图所示，Docker 守护进程运行在一台主机上。用户并不直接和守护进程进行交互，而是通过 Docker 客户端间接和其通信。<br>Docker 客户端，实际上是 docker 的二进制程序，是主要的用户与 Docker 交互方式。它接收用户指令并且与背后的 Docker 守护进程通信，如此来回往复。</p>
 <h3 id="容器与虚拟机两者是可以共存的"><a href="#容器与虚拟机两者是可以共存的" class="headerlink" title="容器与虚拟机两者是可以共存的"></a>容器与虚拟机两者是可以共存的</h3><p>就我而言，对于两者无所谓谁会取代谁，而是两者可以和谐共存。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493167.jpg" alt="两者是可以共存的"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509955.jpg" alt="两者是可以共存的"></p>
 <hr>
 <blockquote>
 <p> Docker中非常重要的三个基本概念，理解了这三个概念，就理解了 Docker 的整个生命周期。</p>
@@ -494,11 +494,11 @@ height:50vh;
 <li><strong>仓库（Repository）</strong></li>
 </ul>
 <p>理解了这三个概念，就理解了 Docker 的整个生命周期</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493166.jpg" alt="Docker 包括三个基本概念"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509953.jpg" alt="Docker 包括三个基本概念"></p>
 <h3 id="镜像-Image-一个特殊的文件系统"><a href="#镜像-Image-一个特殊的文件系统" class="headerlink" title="镜像(Image):一个特殊的文件系统"></a>镜像(Image):一个特殊的文件系统</h3><p>　　<strong>操作系统分为内核和用户空间</strong>。对于 Linux 而言，内核启动后，会挂载 root 文件系统为其提供用户空间支持。而Docker 镜像（Image），就相当于是一个 root 文件系统。</p>
 <p>　　<strong>Docker 镜像是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。</strong> 镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
 <p>　　镜像（<code>Image</code>）就是一堆只读层（<code>read-only layer</code>）的统一视角，也许这个定义有些难以理解，下面的这张图能够帮助读者理解镜像的定义。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493249.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509951.png" alt=""></p>
 <p>　　从左边我们看到了多个只读层，它们重叠在一起。除了最下面一层，其它层都会有一个指针指向下一层。这些层是Docker 内部的实现细节，并且能够在主机的文件系统上访问到。统一文件系统 (union file system) 技术能够将不同的层整合成一个文件系统，为这些层提供了一个统一的视角，这样就隐藏了多层的存在，在用户的角度看来，只存在一个文件系统。我们可以在图片的右边看到这个视角的形式。</p>
 <p>　　Docker 设计时，就充分利用 <strong>Union FS</strong>的技术，将其设计为 <strong>分层存储的架构</strong> 。 镜像实际是由多层文件系统联合组成。</p>
 <p>　　<strong>镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。</strong>　比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会一直跟随镜像。因此，在构建镜像的时候，需要额外小心，每一层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。</p>
@@ -566,7 +566,7 @@ height:50vh;
 </li>
 </ul>
 <p>参考文档：<a href="http://tiewei.github.io/devops/howto-use-cgroup/" target="_blank" rel="noopener">how to use cgroup</a></p>
-<h2 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h2><p>  <img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493309.png" alt=""></p>
+<h2 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h2><p>  <img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509956.png" alt=""></p>
 <p>　 这张图展示了 Docker 客户端、服务端和 Docker 仓库（即 Docker Hub 和 Docker Cloud ），默认情况下Docker 会在 Docker 中央仓库寻找镜像文件，这种利用仓库管理镜像的设计理念类似于 Git ，当然这个仓库是可以通过修改配置来指定的，甚至我们可以创建我们自己的私有仓库。</p>
 <p>  <code>Docker</code> 的核心组件包括：</p>
 <ol>
@@ -578,7 +578,7 @@ height:50vh;
 </ol>
 <p>Docker 采用的是 Client/Server 架构。客户端向服务器发送请求，服务器负责构建、运行和分发容器。客户端和服务器可以运行在同一个 Host 上，客户端也可以通过 socket 或 REST API 与远程的服务器通信。</p>
 <h3 id="Docker-Client"><a href="#Docker-Client" class="headerlink" title="Docker Client"></a>Docker Client</h3><p>Docker Client ，也称 Docker 客户端。它其实就是 Docker 提供命令行界面 (CLI) 工具，是许多 Docker 用户与 Docker 进行交互的主要方式。客户端可以构建，运行和停止应用程序，还可以远程与Docker_Host进行交互。最常用的 Docker 客户端就是 docker 命令，我们可以通过 docker 命令很方便地在 host 上构建和运行 docker 容器。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493381.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509952.png" alt=""></p>
 <h3 id="Docker-daemon"><a href="#Docker-daemon" class="headerlink" title="Docker daemon"></a>Docker daemon</h3><p>Docker daemon 是服务器组件，以 Linux 后台服务的方式运行，是 Docker 最核心的后台进程，我们也把它称为守护进程。它负责响应来自 Docker Client 的请求，然后将这些请求翻译成系统调用完成容器管理操作。该进程会在后台启动一个 API Server ，负责接收由 Docker Client 发送的请求，接收到的请求将通过Docker daemon 内部的一个路由分发调度，由具体的函数来执行请求。</p>
 <p>我们大致可以将其分为以下三部分：</p>
 <ul>
@@ -586,7 +586,7 @@ height:50vh;
 <li>Engine</li>
 <li>Job<br>Docker Daemon的架构如下所示：</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493318.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509954.png" alt=""></p>
 <p>Docker Daemon 可以认为是通过 Docker Server 模块接受 Docker Client 的请求，并在 Engine 中处理请求，然后根据请求类型，创建出指定的 Job 并运行。 </p>
 <p>Docker Daemon 运行在 Docker host 上，负责创建、运行、监控容器，构建、存储镜像。</p>
 <p>运行过程的作用有以下几种可能：</p>
@@ -601,10 +601,10 @@ height:50vh;
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="attr">--daemon</span> = <span class="literal">true</span></span><br><span class="line">docker –d</span><br><span class="line">docker –<span class="attr">d</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>再由 docker 的 main() 函数来解析以上命令的相应 flag 参数，并最终完成 Docker Daemon 的启动。</p>
 <p>下图可以很直观地看到 Docker Daemon 的启动流程：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493330.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509946.png" alt=""></p>
 <p>默认配置下， Docker daemon 只能响应来自本地 Host 的客户端请求。如果要允许远程客户端请求，需要在配置文件中打开 TCP 监听。我们可以照着如下步骤进行配置：</p>
 <p>1、编辑配置文件 /etc/systemd/system/multi-user.target.wants/docker.service ，在环境变量 ExecStart 后面添加 -H tcp://0.0.0.0，允许来自任意 IP 的客户端连接。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493451.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509959.png" alt=""></p>
 <p>2、重启 Docker daemon</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">systemctl</span> <span class="string">daemon-reload</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">restart docker.service</span></span><br></pre></td></tr></table></figure>
 <p>3、我们通过以下命令即可实现与远程服务器通信</p>
@@ -620,7 +620,7 @@ height:50vh;
 <p>我们可以将镜像的内容和创建步骤描述在一个文本文件中，这个文件被称作 <code>Dockerfile</code> ，通过执行 <code>docker build &lt;docker-file&gt;</code> 命令可以构建出 Docker 镜像,后面会详细介绍这个问题</p>
 <h3 id="Docker-Registry-amp-Container"><a href="#Docker-Registry-amp-Container" class="headerlink" title="Docker Registry&amp;Container"></a>Docker Registry&amp;Container</h3><p>前面在讲基本概念的时候实际上已经很清楚了，这里不过多解释</p>
 <p>Docker registry 是存储 docker image 的仓库，它在 docker 生态环境中的位置如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493382.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509960.png" alt=""></p>
 <p>运行docker push、docker pull、docker search时，实际上是通过 docker daemon 与 docker registry 通信。</p>
 <p>Docker 容器就是 Docker 镜像的运行实例，是真正运行项目程序、消耗系统资源、提供服务的地方。 Docker Container 提供了系统硬件环境，我们可以使用 Docker Images 这些制作好的系统盘，再加上我们所编写好的项目代码， run 一下就可以提供服务啦。</p>
 <hr>
@@ -628,7 +628,7 @@ height:50vh;
 <p>Docker的概念基本上已经讲完，最后我们谈谈：Build, Ship, and Run。</p>
 </blockquote>
 <h2 id="最后谈谈-Build-Ship-and-Run"><a href="#最后谈谈-Build-Ship-and-Run" class="headerlink" title="最后谈谈:Build Ship and Run"></a>最后谈谈:Build Ship and Run</h2><p>如果你搜索Docker官网，会发现如下的字样：<strong>“Docker - Build, Ship, and Run Any App, Anywhere”</strong>。那么Build, Ship, and Run到底是在干什么呢？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493452.jpg" alt="build ship run"></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509961.jpg" alt="build ship run"></p>
 <ul>
 <li><strong>Build（构建镜像）</strong> ： 镜像就像是集装箱包括文件以及运行环境等等资源。</li>
 <li><strong>Ship（运输镜像）</strong> ：主机和仓库间运输，这里的仓库就像是超级码头一样。</li>
@@ -671,7 +671,7 @@ height:50vh;
 <p>目前docker在windows家庭版中安装还比较坑，你需要手动安装Hyper-V服务(.cmd文件内容如下)，并绕过docker安装程序的系统版本检测，另外，安装时不要勾选：use windows containers instead of linux containers</p>
 </blockquote>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pushd <span class="string">"%~dp0"</span></span><br><span class="line">dir <span class="string">/b</span> %SystemRoot%\servicing\Packages\*Hyper-V*<span class="string">.mum</span> &gt;hyper-v.txt</span><br><span class="line">for <span class="string">/f</span> %%i in <span class="params">('findstr /i . hyper-v.txt 2^&gt;nul')</span> do dism <span class="string">/online</span> <span class="string">/norestart</span> <span class="string">/add-package</span>:<span class="string">"%SystemRoot%\servicing\Packages\%%i"</span></span><br><span class="line">del hyper-v.txt</span><br><span class="line">Dism <span class="string">/online</span> <span class="string">/enable-feature</span> <span class="string">/featurename</span><span class="function">:Microsoft-Hyper-V-All</span> <span class="string">/LimitAccess</span> <span class="string">/ALL</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493453.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510020.png" alt=""></p>
 <h2 id="Docker-image"><a href="#Docker-image" class="headerlink" title="Docker-image"></a>Docker-image</h2><blockquote>
 <p>镜像作为 Docker 三大核心概念中，最重要的一个关键词，它有很多操作，是您想学习容器技术不得不掌握的。</p>
 </blockquote>
@@ -688,18 +688,18 @@ height:50vh;
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.7</span></span><br></pre></td></tr></table></figure>
 
 <p>会看到控制台输出内容如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493466.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218509963.png" alt=""></p>
 <p><strong>注意：</strong> 由于官方 DockerHub 仓库服务器在国外，下载速度较慢，所以我将仓库的地址更改成了国内的 <code>docker.io</code> 的镜像仓库，所以在上图中，镜像前面会有 <code>docker.io</code> 出现。</p>
 <p>当有 <strong>Downloaded</strong> 字符串输出的时候，说明下载成功了！！</p>
 <p> <strong>验证</strong></p>
 <p>让我们来验证一下，本地是否存在 Mysql5.7 的镜像，运行命令：</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker images</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493500.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510181.png" alt=""></p>
 <p>可以看到本地的确存在该镜像，确实是下载成功了！</p>
 <p><strong>下载镜像相关细节</strong></p>
 <p>再说说上面下载镜像的过程：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493516.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510197.png" alt=""></p>
 <p>通过下载过程，可以看到，一个镜像一般是由多个层（ <code>layer</code>） 组成，类似 <code>9fc222b64b0a</code>这样的串表示层的唯一 ID（实际上完整的 ID 包括了 256 个 bit, 64 个十六进制字符组成）。</p>
 <p><strong>您可能会想，如果多个不同的镜像中，同时包含了同一个层（ layer）,这样重复下载，岂不是导致了存储空间的浪费么?</strong></p>
 <p>实际上，Docker 并不会这么傻会去下载重复的层（ <code>layer</code>）,Docker 在下载之前，会去检测本地是否会有同样 ID 的层，如果本地已经存在了，就直接使用本地的就好了。</p>
@@ -727,7 +727,7 @@ height:50vh;
 <figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">image</span> <span class="keyword">ls</span></span><br></pre></td></tr></table></figure>
 
 <p>如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493556.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510184.png" alt=""></p>
 <p>对上述红色标注的字段做一下解释：</p>
 <ul>
 <li><strong>REPOSITORY</strong>: 来自于哪个仓库；</li>
@@ -744,7 +744,7 @@ height:50vh;
 
 <p><strong>使用 tag 命令为镜像添加标签</strong></p>
 <p>通常情况下，为了方便在后续工作中，快速地找到某个镜像，我们可以使用 <code>docker tag</code> 命令，为本地镜像添加一个新的标签。为 <code>mysql</code> 镜像，添加新的镜像标签 <code>allen_mysql:5.7</code>。然后使用 <code>docker images</code> 命令，查看本地镜像。如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493598.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510182.png" alt=""></p>
 <p>可以看到，本地多了一个 <code>qymua_mysql:5.7</code> 的镜像。细心的你一定还会发现， <code>qymua_mysql:5.7</code> 和 <code>mysql:5.7</code> 的镜像 ID 是一模一样的，说明它们是同一个镜像，只是别名不同而已。</p>
 <p><code>docker tag</code> 命令功能更像是, 为指定镜像添加快捷方式一样。</p>
 <p><strong>使用 inspect 命令查看镜像详细信息</strong></p>
@@ -754,13 +754,13 @@ height:50vh;
 <p><code>docker inspect</code> 返回的是 <code>JSON</code> 格式的信息，如果您想获取其中指定的一项内容，可以通过 <code>-f</code> 来指定，如获取镜像大小：</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect -<span class="class">f </span>&#123;&#123;<span class="string">".Size"</span>&#125;&#125; mysql:<span class="number">5.7</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493615.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510183.png" alt=""></p>
 <p><strong>使用 history 命令查看镜像历史</strong></p>
 <p>前面的小节中，我们知道了，一个镜像是由多个层（layer）组成的，那么，我们要如何知道各个层的具体内容呢？</p>
 <p>通过 <code>docker history</code> 命令，可以列出各个层（layer）的创建信息，如我们查看 <code>mysql:5.7</code> 的各层信息：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">history</span> mysq<span class="variable">l:5</span>.<span class="number">7</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493616.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510200.png" alt=""></p>
 <p>可以看到，上面过长的信息，为了方便展示，后面都省略了，如果您想要看具体信息，可以通过添加 <code>--no-trunc</code> 选项，如下面命令：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">history</span> --<span class="keyword">no</span>-<span class="built_in">trunc</span> mysq<span class="variable">l:5</span>.<span class="number">7</span></span><br></pre></td></tr></table></figure>
 
@@ -897,9 +897,9 @@ height:50vh;
 <li><code>-p,--pause</code>=true: 提交时，暂停容器运行。</li>
 </ul>
 <p>接下来，基于本地已有的 Ubuntu 镜像，创建一个新的镜像：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493629.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510199.png" alt=""></p>
 <p>首先，让我将它运行起来，并在其中创建一个 test.txt 文件：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493647.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510201.png" alt=""></p>
 <p>命令如下：</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root<span class="variable">@ubuntuweb</span><span class="symbol">:/</span><span class="comment"># docker run -it ubuntu:latest /bin/bash</span></span><br><span class="line">root<span class="variable">@437b2645a468</span><span class="symbol">:/</span><span class="comment"># touch test.txt</span></span><br><span class="line">root<span class="variable">@437b2645a468</span><span class="symbol">:/</span><span class="comment"># exit</span></span><br></pre></td></tr></table></figure>
 
@@ -908,9 +908,9 @@ height:50vh;
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container <span class="keyword">commit</span> -m <span class="string">"Added test.txt file"</span> -a <span class="string">"QYMUA"</span> <span class="number">437</span>b2645a468 <span class="keyword">test</span>:<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
 
 <p>提交成功后，会返回新创建的镜像 ID 信息，如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493646.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510285.png" alt=""></p>
 <p>再次查看本地镜像信息，可以看到新创建的 <code>test:0.1</code> 镜像了：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493718.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510196.png" alt=""></p>
 <p><strong>基于 Dockerfile 创建</strong></p>
 <p>通过 Dockerfile 的方式来创建镜像，是最常见的一种方式了，也是比较推荐的方式。Dockerfile 是一个文本指令文件，它描述了是如何基于一个父镜像，来创建一个新镜像的过程。</p>
 <p>下面让我们来编写一个简单的 Dockerfile 文件，它描述了基于 Ubuntu 父镜像，安装 Python3 环境的镜像：</p>
@@ -931,7 +931,7 @@ height:50vh;
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">docker</span> <span class="selector-tag">save</span> <span class="selector-tag">-o</span> <span class="selector-tag">test_0</span><span class="selector-class">.1</span><span class="selector-class">.tar</span> <span class="selector-tag">test</span><span class="selector-pseudo">:0.1</span></span><br></pre></td></tr></table></figure>
 
 <p>执行成功后，查看当前目录：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493728.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510204.png" alt=""></p>
 <p>可以看到 <code>test_0.1.tar</code> 镜像文件已经生成</p>
 <p><strong>加载镜像</strong></p>
 <p>别人拿到了这个 <code>tar</code> 包后，要如何导入到本地的镜像库呢？</p>
@@ -958,7 +958,7 @@ height:50vh;
 <p>查看本地信息，可以看到，标签打成功了。执行命令：</p>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">push</span> dockerID/<span class="keyword">test</span>:<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="操作Docker"><a href="#操作Docker" class="headerlink" title="操作Docker"></a>操作Docker</h2><h3 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h3><p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493747.png" alt=""></p>
+<h2 id="操作Docker"><a href="#操作Docker" class="headerlink" title="操作Docker"></a>操作Docker</h2><h3 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h3><p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510202.png" alt=""></p>
 <p><strong>Search images</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo docker search ubuntu</span></span><br></pre></td></tr></table></figure>
 
@@ -1032,10 +1032,10 @@ height:50vh;
 <p>docker option</p>
 <figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Usage of docker:</span><br><span class="line">  --api-<span class="keyword">enable</span>-cors=false                <span class="keyword">Enable</span> CORS headers in the remote API                      <span class="meta"># 远程 API 中开启 CORS 头</span></span><br><span class="line">  -b, --bridge=<span class="string">""</span>                        Attach containers to a pre-existing network bridge         <span class="meta"># 桥接网络</span></span><br><span class="line">                                           <span class="keyword">use</span> 'none' to <span class="keyword">disable</span> container networking</span><br><span class="line">  --bip=<span class="string">""</span>                               <span class="keyword">Use</span> this CIDR notation address <span class="keyword">for</span> the network bridge's IP, not compatible with -b</span><br><span class="line">                                         # 和 -b 选项不兼容，具体没有测试过</span><br><span class="line">  -d, --daemon=false                     Enable daemon mode                                         # daemon 模式</span><br><span class="line">  -D, --debug=false                      Enable debug mode                                          # debug 模式</span><br><span class="line">  --dns=[]                               Force docker to use specific DNS servers                   # 强制 docker 使用指定 dns 服务器</span><br><span class="line">  --dns-search=[]                        Force Docker to use specific DNS search domains            # 强制 docker 使用指定 dns 搜索域</span><br><span class="line">  -e, --exec-driver="native"             Force the docker runtime to use a specific exec driver     # 强制 docker 运行时使用指定执行驱动器</span><br><span class="line">  --fixed-cidr=""                        IPv4 subnet <span class="keyword">for</span> fixed IPs (ex: <span class="number">10.20</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">16</span>)</span><br><span class="line">                                           this subnet must be nested in the bridge subnet (which is defined by -b or --bip)</span><br><span class="line">  -G, --group="docker"                   Group to assign the unix socket specified by -H when running in daemon mode</span><br><span class="line">                                           use '' (the empty string) to disable setting of a group</span><br><span class="line">  -g, --graph="/var/lib/docker"          Path to use as the root of the docker runtime              # 容器运行的根目录路径</span><br><span class="line">  -H, --host=[]                          The socket(s) to bind to in daemon mode                    # daemon 模式下 docker 指定绑定方式[tcp or 本地 socket]</span><br><span class="line">                                           specified using one or more tcp://host:port, unix:///path/to/socket, fd:/<span class="comment">/* or fd://socketfd.</span></span><br><span class="line"><span class="comment">  --icc=true                             Enable inter-container communication                       # 跨容器通信</span></span><br><span class="line"><span class="comment">  --insecure-registry=[]                 Enable insecure communication with specified registries (no certificate verification for HTTPS and enable HTTP fallback) (e.g., localhost:5000 or 10.20.0.0/16)</span></span><br><span class="line"><span class="comment">  --ip="0.0.0.0"                         Default IP address to use when binding container ports     # 指定监听地址，默认所有 ip</span></span><br><span class="line"><span class="comment">  --ip-forward=true                      Enable net.ipv4.ip_forward                                 # 开启转发</span></span><br><span class="line"><span class="comment">  --ip-masq=true                         Enable IP masquerading for bridge's IP range</span></span><br><span class="line"><span class="comment">  --iptables=true                        Enable Docker's addition of iptables rules                 # 添加对应 iptables 规则</span></span><br><span class="line"><span class="comment">  --mtu=0                                Set the containers network MTU                             # 设置网络 mtu</span></span><br><span class="line"><span class="comment">                                           if no value is provided: default to the default route MTU or 1500 if no default route is available</span></span><br><span class="line"><span class="comment">  -p, --pidfile="/var/run/docker.pid"    Path to use for daemon PID file                            # 指定 pid 文件位置</span></span><br><span class="line"><span class="comment">  --registry-mirror=[]                   Specify a preferred Docker registry mirror                  </span></span><br><span class="line"><span class="comment">  -s, --storage-driver=""                Force the docker runtime to use a specific storage driver  # 强制 docker 运行时使用指定存储驱动</span></span><br><span class="line"><span class="comment">  --selinux-enabled=false                Enable selinux support                                     # 开启 selinux 支持</span></span><br><span class="line"><span class="comment">  --storage-opt=[]                       Set storage driver options                                 # 设置存储驱动选项</span></span><br><span class="line"><span class="comment">  --tls=false                            Use TLS; implied by tls-verify flags                       # 开启 tls</span></span><br><span class="line"><span class="comment">  --tlscacert="/root/.docker/ca.pem"     Trust only remotes providing a certificate signed by the CA given here</span></span><br><span class="line"><span class="comment">  --tlscert="/root/.docker/cert.pem"     Path to TLS certificate file                               # tls 证书文件位置</span></span><br><span class="line"><span class="comment">  --tlskey="/root/.docker/key.pem"       Path to TLS key file                                       # tls key 文件位置</span></span><br><span class="line"><span class="comment">  --tlsverify=false                      Use TLS and verify the remote (daemon: verify client, client: verify daemon) # 使用 tls 并确认远程控制主机</span></span><br><span class="line"><span class="comment">  -v, --version=false                    Print version information and quit                         # 输出 docker 版本信息</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493826.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510205.png" alt=""></p>
 <p>Docker 提供了一套简单实用的命令来创建和更新镜像，我们可以通过网络直接下载一个已经创建好了的应用镜像，并通过 Docker RUN 命令就可以直接使用。当镜像通过 RUN 命令运行成功后，这个运行的镜像就是一个 Docker 容器啦，容器可以理解为一个轻量级的沙箱， Docker 利用容器来运行和隔离应用，容器是可以被启动、停止、删除的，这并不会影响 Docker 镜像。</p>
 <p>我们可以看看下面这幅图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493812.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510207.png" alt=""></p>
 <h3 id="操作容器"><a href="#操作容器" class="headerlink" title="操作容器"></a>操作容器</h3><p><strong>启动容器</strong></p>
 <p>启动容器有两种方式，一种是基于镜像新建一个容器并启动，另外一个是将在终止状态（stopped）的容器重新启动。</p>
 <p>因为 Docker 的容器实在太轻量级了，很多时候用户都是随时删除和新创建容器。</p>
@@ -1176,7 +1176,7 @@ height:50vh;
 <h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><h3 id="Dockerfile概念"><a href="#Dockerfile概念" class="headerlink" title="Dockerfile概念"></a>Dockerfile概念</h3><p>前面我们已经提到了 Docker 的一些基本概念。以 <code>CTF 选手</code>的角度来看，我们可以去使用 Dockerfile 定义镜像，依赖镜像来运行容器，可以去模拟出一个真实的漏洞场景。因此毫无疑问的说， Dockerfile 是镜像和容器的关键，并且 Dockerfile 还可以很轻易的去定义镜像内容，说了这么多，那么 Dockerfile 到底是个什么东西呢？</p>
 <p>Dockerfile 是自动构建 docker 镜像的配置文件， 用户可以使用 Dockerfile 快速创建自定义的镜像。Dockerfile 中的命令非常类似于 linux 下的 shell 命令。</p>
 <p>我们可以通过下面这幅图来直观地感受下 Docker 镜像、容器和 Dockerfile 三者之间的关系。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493846.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510267.png" alt=""></p>
 <p>我们从上图中可以看到， Dockerfile 可以自定义镜像，通过 Docker 命令去运行镜像，从而达到启动容器的目的。</p>
 <p>Dockerfile 是由一行行命令语句组成，并且支持已 <code>#</code> 开头的注释行。</p>
 <p>一般来说，我们可以将 Dockerfile 分为四个部分：</p>
@@ -1316,7 +1316,7 @@ height:50vh;
 <h3 id="Docker-Compose-介绍"><a href="#Docker-Compose-介绍" class="headerlink" title="Docker Compose 介绍"></a>Docker Compose 介绍</h3><p>Docker-Compose 是 Docker 的一种编排服务，是一个用于在 Docker 上定义并运行复杂应用的工具，可以让用户在集群中部署分布式应用。</p>
 <p>通过 Docker-Compose 用户可以很容易地用一个配置文件定义一个多容器的应用，然后使用一条指令安装这个应用的所有依赖，完成构建。Docker-Compose 解决了容器与容器之间如何管理编排的问题。</p>
 <p>Docker Compose 工作原理图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493878.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510206.png" alt=""></p>
 <p>Compose 中有两个重要的概念：</p>
 <ul>
 <li>服务 (service) ：一个应用的容器，实际上可以包括若干运行相同镜像的容器实例。</li>
@@ -1366,9 +1366,9 @@ height:50vh;
 
 <p><strong>运行 compose 项目</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker-compose up</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493895.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510198.png" alt=""></p>
 <p>此时访问本地 5000 端口，每次刷新页面，计数就会加 1。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217493894.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Qymua/bookmaker-data/master/Qymua/1589218510203.png" alt=""></p>
 <h3 id="命令说明"><a href="#命令说明" class="headerlink" title="命令说明"></a>命令说明</h3><p><strong>命令对象与格式</strong></p>
 <p>对于 Compose 来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或者容器。如果没有特别的说明，命令对象将是项目，这意味着项目中所有的服务都会受到命令影响。</p>
 <p>执行 <code>docker-compose [COMMAND] --help</code> 或者 <code>docker-compose help [COMMAND]</code> 可以查看具体某个命令的使用格式。</p>
