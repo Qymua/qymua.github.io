@@ -413,6 +413,7 @@ height:50vh;
 <h1 id="安装Docker-for-Windows"><a href="#安装Docker-for-Windows" class="headerlink" title="安装Docker for Windows"></a>安装Docker for Windows</h1><h2 id="下载Docker-for-Windows"><a href="#下载Docker-for-Windows" class="headerlink" title="下载Docker for Windows"></a>下载Docker for Windows</h2><p>从这个地址下载并进行安装：<a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" target="_blank" rel="noopener">docker for windows</a></p>
 <p>安装过程中如果遇到系统版本不适配的问题可以修改<code>EditionID</code>的变量值为<code>Profession</code> ，注册表地址如下：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE<span class="tag">\<span class="name">SOFTWARE</span></span><span class="tag">\<span class="name">Microsoft</span></span><span class="tag">\<span class="name">Windows</span></span> NT<span class="tag">\<span class="name">CurrentVersion</span></span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>安装成功后不要启动服务</p>
 </blockquote>
@@ -425,9 +426,9 @@ height:50vh;
 <p>从这里下载 <a href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/" target="_blank" rel="noopener">https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/</a> </p>
 <p>最新版的vm驱动。此驱动非官方开发，但是也在官方的文档中有链接</p>
 <p>然后将 <code>docker-machine-driver-vmwareworkstation.exe</code>复制到 <code>C:\Program Files\Docker\Docker\resources\bin</code> 下：</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566451983155.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217138976.png" alt=""></p>
 <h2 id="安装Docker-Machine"><a href="#安装Docker-Machine" class="headerlink" title="安装Docker Machine"></a>安装Docker Machine</h2><p>Docker Machine 是 Docker 官方提供的一个工具，它可以帮助我们在远程的机器上安装 Docker，或者在虚拟机 host 上直接安装虚拟机并在虚拟机中安装 Docker。我们还可以通过 docker-machine 命令来管理这些虚拟机和 Docker。下面是来自 Docker Machine 官方文档的一张图，很形象哦！</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566532111553.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217138938.png" alt=""></p>
 <p>Docker Machine 的安装十分简单，如果在远程主机中直接把可执行文件下载到本地就可以了。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -L <span class="symbol">https:</span>/<span class="regexp">/github.com/docker</span><span class="regexp">/machine/releases</span><span class="regexp">/download/v</span><span class="number">0</span>.<span class="number">12.0</span>/docker-machine-<span class="string">`uname -s`</span>-<span class="string">`uname -m`</span> &gt; <span class="regexp">/tmp/docker</span>-machine</span><br><span class="line">$ chmod +x /tmp/docker-machine</span><br><span class="line">$ sudo mv /tmp/docker-machine /usr/local/bin/docker-machine</span><br></pre></td></tr></table></figure>
 <p>其中 v0.12.0 是最新的版本。当然 Docker Machine 是个开源项目，你可以选择安装不同的版本，或者是自行编译。因为我不太需要在远程搭建docker，所以就不过多介绍了XD，下面还是继续正题</p>
@@ -442,27 +443,30 @@ height:50vh;
 <p><strong>2、安装Docker-dev</strong></p>
 <p>打开cmd，执行命令</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-machine <span class="built_in">create</span> <span class="comment">--driver=vmwareworkstation Docker-dev </span></span><br><span class="line">//docker-dev实际上是虚拟机的名称，可自定义</span><br></pre></td></tr></table></figure>
+
 <p>执行过程如下</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566543018940.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217138977.png" alt=""></p>
 <p><strong>3、验证安装</strong></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine <span class="keyword">ls</span></span><br></pre></td></tr></table></figure>
+
 <p>会出现看到刚刚安装的<code>docker-dev</code>实例</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566452235705.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217138955.png" alt=""></p>
 <p>如果列表有之前安装失败或者旧的dev，可以使用命令清除</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine rm -f  <span class="tag">&lt;<span class="name">NAME</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>4、激活实例</strong></p>
 <p>执行命令：</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker-machine env Docker-dev</span></span><br></pre></td></tr></table></figure>
 <p>会出现要你配置的环境变量：</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566452381741.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217139054.png" alt=""></p>
 <p>依次添加环境变量即可</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566452429851.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217139053.png" alt=""></p>
 <p><strong>5、验证是否安装成功</strong></p>
 <p><strong>登录dev实例</strong></p>
 <p>使用命令登录：</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker-machine ssh Docker-dev</span></span><br></pre></td></tr></table></figure>
+
 <p>出现如下表示成功：</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566452613983.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217139074.png" alt=""></p>
 <h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p><strong>1、配置加速器</strong></p>
 <p>通过命令登录docker-machine</p>
 <p>按照加速服务提供商的教程执行命令即可</p>
@@ -470,22 +474,24 @@ height:50vh;
 <p>新建文件 <code>vi /etc/docker/daemon.json</code></p>
 <p>输入以下内容</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"你的加速器地址"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>保存重启虚拟机即可</p>
 <p>为了方便管理，你还可以在VMware 中添加你刚刚创建的<code>Docker-dev</code></p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566453255780.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217139075.png" alt=""></p>
 <p><strong>2.ssh连接方式</strong></p>
 <p>通常情况下，推荐使用 <code>docker-machine ssh default</code> 进行登录，不需要输入密码。<code>default</code> 是默认的 <code>machine</code> 名字。</p>
 <p>在 <code>boot2docker</code> 中，默认的用户名和密码是：</p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">user:</span> docker</span><br><span class="line"><span class="symbol">pass:</span> tcuser</span><br></pre></td></tr></table></figure>
+
 <p>登录方法：</p>
 <figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ ssh docker<span class="meta">@localhost</span> -p <span class="number">2022</span></span><br><span class="line">docker<span class="meta">@localhost</span>'s password: tcuser</span><br><span class="line">                        <span class="comment">##        .</span></span><br><span class="line">                  <span class="comment">## ## ##       ==</span></span><br><span class="line">               <span class="comment">## ## ## ##      ===</span></span><br><span class="line">           /<span class="string">""""""</span><span class="string">""""""</span><span class="string">""""\___/ ===</span></span><br><span class="line"><span class="string">      ~~~ &#123;~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~</span></span><br><span class="line"><span class="string">           \______ o          __/</span></span><br><span class="line"><span class="string">             \    \        __/</span></span><br><span class="line"><span class="string">              \____\______/</span></span><br></pre></td></tr></table></figure>
 <p>这样我就能很方便的管理docker</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566532408512.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217138944.png" alt=""></p>
 <p><strong>3、关闭Docker Desktop 服务</strong></p>
 <p>由于没有使用<code>hyper-v</code> 所以本地没必要起这个服务，可以把开机自启项去掉</p>
 <p>每次使用的时候开启虚拟机Docker-dev即可</p>
 <p>用法都一样，在vscode中依然正常连接，只是在终端使用的时候要ssh连接Docker-dev而已</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1566454036757.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217138957.png" alt=""></p>
 <blockquote>
 <p>果然还是入手mac是最高效的XD 花钱省心 ！</p>
 </blockquote>

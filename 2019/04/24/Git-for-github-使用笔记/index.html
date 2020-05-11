@@ -408,6 +408,7 @@ height:50vh;
 </blockquote>
 <p>详细的学习教程–&gt;<a href="http://www.runoob.com/git/git-tutorial.html" target="_blank" rel="noopener">菜鸟教程 for Git</a> </p>
 <a id="more"></a>
+
 <h2 id="Git和github的关系"><a href="#Git和github的关系" class="headerlink" title="Git和github的关系"></a>Git和github的关系</h2><p><code>git</code>: 是分布式版本控制工具（Version control）,它可在本地建立仓库,你写的代码的各个版本都可以存着 ;</p>
 <p><code>github</code>: 是一个面向开源及私有软件项目的托管平台，相当于网上仓库,你写的代码的各个版本都可以存着;</p>
 <p><code>历史渊源</code>：Git比GitHub出生的早。事件回到2005年，有个公司不允许linux系统继续免费使用它们的版本控制软件了，然后linux系统创始人Torvalds一气之下花了10天时间创造了Git（第一个版本），并且开源给所有人免费试用。3年后，Tom Preston使用Git作为版本控制软件创建了<a href="http://Github.com" target="_blank" rel="noopener">http://Github.com</a> ，一个专门托管代码并且可以实现版本控制的网站。Tom之所以把网站叫做Github，是因为其核心部分版本控制是用Git来处理的。但是 为什么有人回复调侃Github是全球最大男性交友网站呢？那是因为Github的注册用户大都是男生，而且彼此之间可以相互关注（类似于微博）</p>
@@ -415,105 +416,101 @@ height:50vh;
 <h3 id="1、个人本地使用"><a href="#1、个人本地使用" class="headerlink" title="1、个人本地使用"></a>1、个人本地使用</h3><table>
 <thead>
 <tr>
-<th style="text-align:center">行为</th>
-<th style="text-align:center">命令</th>
-<th style="text-align:left">备注</th>
+<th align="center">行为</th>
+<th align="center">命令</th>
+<th align="left">备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">初始化</td>
-<td style="text-align:center">init</td>
-<td style="text-align:left">在本地的当前目录里初始化git仓库</td>
+<tbody><tr>
+<td align="center">初始化</td>
+<td align="center">init</td>
+<td align="left">在本地的当前目录里初始化git仓库</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">clone [url]</td>
-<td style="text-align:left">从网络上某个地址拷贝仓库(repository)到本地</td>
+<td align="center"></td>
+<td align="center">clone [url]</td>
+<td align="left">从网络上某个地址拷贝仓库(repository)到本地</td>
 </tr>
 <tr>
-<td style="text-align:center">查看当前状态</td>
-<td style="text-align:center">status</td>
-<td style="text-align:left">查看当前仓库的状态。</td>
+<td align="center">查看当前状态</td>
+<td align="center">status</td>
+<td align="left">查看当前仓库的状态。</td>
 </tr>
 <tr>
-<td style="text-align:center">查看不同</td>
-<td style="text-align:center">diff</td>
-<td style="text-align:left">查看当前状态和最新的commit之间不同的地方</td>
+<td align="center">查看不同</td>
+<td align="center">diff</td>
+<td align="left">查看当前状态和最新的commit之间不同的地方</td>
 </tr>
 <tr>
-<td style="text-align:center">添加文件</td>
-<td style="text-align:center">add -A</td>
-<td style="text-align:left">这算是相当通用的了。在commit之前要先add</td>
+<td align="center">添加文件</td>
+<td align="center">add -A</td>
+<td align="left">这算是相当通用的了。在commit之前要先add</td>
 </tr>
 <tr>
-<td style="text-align:center">提交</td>
-<td style="text-align:center">commit -m “提交信息”</td>
-<td style="text-align:left">提交信息最好能体现更改了什么</td>
+<td align="center">提交</td>
+<td align="center">commit -m “提交信息”</td>
+<td align="left">提交信息最好能体现更改了什么</td>
 </tr>
 <tr>
-<td style="text-align:center">查看提交记录</td>
-<td style="text-align:center">log</td>
-<td style="text-align:left">查看当前版本及之前的commit记录</td>
+<td align="center">查看提交记录</td>
+<td align="center">log</td>
+<td align="left">查看当前版本及之前的commit记录</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="2、个人使用远程仓库"><a href="#2、个人使用远程仓库" class="headerlink" title="2、个人使用远程仓库"></a>2、个人使用远程仓库</h3><table>
 <thead>
 <tr>
-<th style="text-align:center">行为</th>
-<th style="text-align:center">命令</th>
-<th style="text-align:left">备注</th>
+<th align="center">行为</th>
+<th align="center">命令</th>
+<th align="left">备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">设置用户名</td>
-<td style="text-align:center">config –global user.name “你的用户名”</td>
-<td style="text-align:left"></td>
+<tbody><tr>
+<td align="center">设置用户名</td>
+<td align="center">config –global user.name “你的用户名”</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:center">设置邮箱</td>
-<td style="text-align:center">config –global user.email “你的邮箱”</td>
-<td style="text-align:left"></td>
+<td align="center">设置邮箱</td>
+<td align="center">config –global user.email “你的邮箱”</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:center">生成ssh key</td>
-<td style="text-align:center">ssh-keygen -t rsa -C “你的邮箱”</td>
-<td style="text-align:left">这条命令前面不用加git</td>
+<td align="center">生成ssh key</td>
+<td align="center">ssh-keygen -t rsa -C “你的邮箱”</td>
+<td align="left">这条命令前面不用加git</td>
 </tr>
 <tr>
-<td style="text-align:center">添加远程仓库</td>
-<td style="text-align:center">remote add origin 你复制的地址</td>
-<td style="text-align:left">设置origin</td>
+<td align="center">添加远程仓库</td>
+<td align="center">remote add origin 你复制的地址</td>
+<td align="left">设置origin</td>
 </tr>
 <tr>
-<td style="text-align:center">上传并指定默认</td>
-<td style="text-align:center">push -u origin master</td>
-<td style="text-align:left">指定默认主机，以后push默认上传到origin上</td>
+<td align="center">上传并指定默认</td>
+<td align="center">push -u origin master</td>
+<td align="left">指定默认主机，以后push默认上传到origin上</td>
 </tr>
 <tr>
-<td style="text-align:center">提交到远程仓库</td>
-<td style="text-align:center">push</td>
-<td style="text-align:left">将当前分支增加的commit提交到远程仓库</td>
+<td align="center">提交到远程仓库</td>
+<td align="center">push</td>
+<td align="left">将当前分支增加的commit提交到远程仓库</td>
 </tr>
 <tr>
-<td style="text-align:center">从远程仓库同步</td>
-<td style="text-align:center">pull</td>
-<td style="text-align:left">获取远程仓库的commit</td>
+<td align="center">从远程仓库同步</td>
+<td align="center">pull</td>
+<td align="left">获取远程仓库的commit</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>可以使用一张图直观地看出以上主要命令对仓库的影响</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/006WtDzMgy1g2dspyxgk9j314a0qxjvu.jpg" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217372908.jpg" alt=""></p>
 <p>图片引用自：<a href="http://blog.podrezo.com/git-introduction-for-cvssvntfs-users/" target="_blank" rel="noopener">Git introduction for CVS/SVN/TFS users</a></p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/006WtDzMgy1g2dsqvakjrj30ju06smxz.jpg" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217372930.jpg" alt=""></p>
 <p>图片引用自：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000" target="_blank" rel="noopener">工作区和暂存区 - 廖雪峰的官方网站</a> （做了点修改）</p>
 <p>对照查看两张图：</p>
 <blockquote>
 <p>workspace 即工作区，逻辑上是本地计算机，还没添加到repository的状态；<br>staging 即版本库中的stage，是暂存区。修改已经添加进repository，但还没有作为commit提交，类似于缓存；<br>Local repository 即版本库中master那个地方。到这一步才算是成功生成一个新版本；<br>Remote repository 则是远程仓库。用来将本地仓库上传到网络，可以用于备份、共享、合作。本文将使用Github作为远程仓库的例子。</p>
 </blockquote>
-<h2 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h2><h3 id="Git-for-windows"><a href="#Git-for-windows" class="headerlink" title="Git for windows"></a>Git for windows</h3><p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/006WtDzMgy1g2dss4kiwyj305v05u3yw.jpg" alt></p>
+<h2 id="Git-安装"><a href="#Git-安装" class="headerlink" title="Git 安装"></a>Git 安装</h2><h3 id="Git-for-windows"><a href="#Git-for-windows" class="headerlink" title="Git for windows"></a>Git for windows</h3><p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217372928.jpg" alt=""></p>
 <p> 安装包可以到<a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">官方网站</a>下载，或者在<a href="https://github.com/git-for-windows/git/releases" target="_blank" rel="noopener">github</a>下载。如果下载不下来，可以把链接复制下来用迅雷下载。如果用迅雷下载不放心，在下载完后去在github下载的那个地方查看SHA-256值，并和下载的文件对比，如果值一样就可以放心使用。<br><br> 安装的时候一路点击<code>Next</code>就行了。<br><br> 刚安装完打开后，窗口比较小。如果不太习惯，可以把它改大一些。<br><br> 1、首先移到窗口右下角边缘，出现箭头后把窗口拉大。<br> 2、点击窗口顶部左边的图标 -&gt; Options… -&gt; Window -&gt; Current size -&gt; OK<br>     这样以后打开窗口都会是调整后的大小。</p>
 <blockquote>
 <p>Git for Windows从<a href="https://github.com/git-for-windows/git/releases/tag/v2.8.0.windows.1" target="_blank" rel="noopener">2.8.0</a>版本开始，默认添加环境变量，所以环境变量部分就不用再手动配置了。</p>
@@ -523,8 +520,10 @@ height:50vh;
 <p>各 Linux 系统可以使用其安装包管理工具（apt-get、yum 等）进行安装：</p>
 <p><code>Debian/Ubuntu</code> Git 安装命令为：</p>
 <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ apt-<span class="built_in">get</span> install libcurl4-gnutls-<span class="built_in">dev</span> libexpat1-<span class="built_in">dev</span> gettext \</span><br><span class="line">  libz-<span class="built_in">dev</span> libssl-<span class="built_in">dev</span></span><br><span class="line"></span><br><span class="line">$ apt-<span class="built_in">get</span> install git</span><br><span class="line"></span><br><span class="line">$ git --version</span><br><span class="line">git version <span class="number">1.8</span><span class="number">.1</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="用户信息配置"><a href="#用户信息配置" class="headerlink" title="用户信息配置"></a>用户信息配置</h3><p>配置个人的用户名称和电子邮件地址：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git<span class="built_in"> config </span>--global user.name <span class="string">"Qymua"</span></span><br><span class="line">$ git<span class="built_in"> config </span>--global user.email <span class="string">"test@Qymua.com"</span></span><br></pre></td></tr></table></figure>
+
 <p>如果用了 <strong>–global</strong> 选项，那么更改的配置文件就是位于你用户主目录下的那个，以后你所有的项目都会默认使用这里配置的用户信息。</p>
 <p>如果要在某个特定的项目中使用其他名字或者电邮，只要去掉 –global 选项重新配置即可，新的设定保存在当前项目的 .git/config 文件里。</p>
 <h2 id="Git-for-github"><a href="#Git-for-github" class="headerlink" title="Git for github"></a>Git for github</h2><blockquote>
@@ -533,13 +532,15 @@ height:50vh;
 <h3 id="添加ssh-key"><a href="#添加ssh-key" class="headerlink" title="添加ssh key"></a>添加ssh key</h3><p>由于你的本地 Git 仓库和 GitHub 仓库之间的传输是通过SSH加密的，所以我们需要配置验证信息：</p>
 <p>使用以下命令生成 SSH Key：</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure>
-<p>后面的<a href="mailto:*your_email@youremail.com" target="_blank" rel="noopener">*your_email@youremail.com</a>*改为你在 Github 上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在 ~/ 下生成 .ssh 文件夹，进去，打开 <strong>id_rsa.pub</strong>，复制里面的 <strong>key</strong>。</p>
+
+<p>后面的<em><a href="mailto:your_email@youremail.com">your_email@youremail.com</a></em>改为你在 Github 上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在 ~/ 下生成 .ssh 文件夹，进去，打开 <strong>id_rsa.pub</strong>，复制里面的 <strong>key</strong>。</p>
 <p>回到 github 上，进入 Account =&gt; Settings（账户配置）。</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/006WtDzMgy1g2dtfi2xtzj30gn08st9f.jpg" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217372925.jpg" alt=""></p>
 <p>左边选择 <strong>SSH and GPG keys</strong>，然后点击 <strong>New SSH key</strong> 按钮,title 设置标题，可以随便填，粘贴在你电脑上生成的 key。</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/006WtDzMgy1g2dtfz7z8dj30kr0djaaw.jpg" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217372937.jpg" alt=""></p>
 <p>添加成功后为了验证是否成功，输入以下命令：</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi tianqixin! You<span class="symbol">'ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+
 <h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><p>这里不再说明如何创建了，只介绍下相应选项的用途</p>
 <p>Repository name: 仓库名称</p>
 <p>Description(可选): 仓库描述介绍</p>
@@ -554,9 +555,11 @@ height:50vh;
 <p> 5、最后通过git push -u origin master把本地仓库的项目推送到远程仓库（也就是Github）上；</p>
 <p> <em>由于新建的远程仓库是空的，所以要加上-u这个参数，等远程仓库里面有了内容之后，下次再从本地库上传内容的时候只需下面这样就可以了：</em></p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+
 <p>（若新建远程仓库的时候自动创建了README文件会报错，解决办法看下面）。</p>
 <p> 这是由于你新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令先将内容合并以下：</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull <span class="comment">--rebase origin master</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="工作区迁移"><a href="#工作区迁移" class="headerlink" title="工作区迁移"></a>工作区迁移</h3><p>1、在新环境下配置好Git；</p>
 <p>2、通过git init把它变成Git仓库；</p>
 <p>3、git clone [url] 克隆仓库到本地；</p>
@@ -567,10 +570,10 @@ height:50vh;
 <h3 id="github-pages"><a href="#github-pages" class="headerlink" title="github pages"></a>github pages</h3><p><a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a><br>感觉教程也很多，没什么细节操作,就不多废话了,需要的时候折腾下，不做开发不是很需要这么规范</p>
 <h3 id="github-badge"><a href="#github-badge" class="headerlink" title="github badge"></a>github badge</h3><p>单纯为了好看的，没用实际用途<br>用一些通用的小图标来描述项目相关信息确实不失为一种很棒的选择</p>
 <p>GitHub 项目的 README.md 中可以添加徽章（Badge）对项目进行标记和说明，这些好看的小图标不仅简洁美观，而且还包含了清晰易读的信息。<br>徽标主要由图片和对应的链接（当然，你可以不填）组成，徽标图片的话一般由左半部分的名称和右半部分的值组成。</p>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1561791715257.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217372929.png" alt=""></p>
 <p>GitHub 徽标的官方网站是 <a href="https://shields.io/" target="_blank" rel="noopener">shields.io</a><br>例如：自定义徽标</p>
 <figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">https://img.shields.io/badge/</span><span class="template-variable">&#123;徽标标题&#125;</span><span class="xml">-</span><span class="template-variable">&#123;徽标内容&#125;</span><span class="xml">-</span><span class="template-variable">&#123;徽标颜色&#125;</span><span class="xml">.svg</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://www.github.com/Qymua/bookmaker-data/raw/master/Qymua/1561791942639.png" alt></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Qymua/book-maker/master/bookmaker/1589217373014.png" alt=""></p>
 <h2 id="本文涉及的术语"><a href="#本文涉及的术语" class="headerlink" title="本文涉及的术语"></a>本文涉及的术语</h2><ul>
 <li>Version Control（版本控制）:任何一个能够让你了解文件的历史，以及该文件的发展进程的系统。</li>
 <li>Git：一个版本控制程序，通过对变更进行注释，以创建一个易于遍历的系统历史。</li>
