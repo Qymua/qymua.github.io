@@ -1,6 +1,6 @@
 ## 原qoo3'github page
 
-- https://qoo3.github.io/ - 已停用
+- https://qomumu.github.io/ - 已停用
 
 ## 现用作cnblogs资源存放
 
