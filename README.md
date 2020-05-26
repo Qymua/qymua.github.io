@@ -4,7 +4,7 @@
 
 ## 现用作cnblogs资源存放
 
-✔欢迎访问我的博客https://www.cnblogs.com/qoo3/
+✔欢迎访问我的博客https://www.cnblogs.com/qomumu/
 
 
 
